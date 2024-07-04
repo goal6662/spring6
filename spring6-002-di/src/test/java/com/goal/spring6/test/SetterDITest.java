@@ -1,5 +1,6 @@
 package com.goal.spring6.test;
 
+import com.goal.spring6.bean.MyDataSource;
 import com.goal.spring6.bean.Student;
 import com.goal.spring6.bean.User;
 import com.goal.spring6.dao.OrderDao;
@@ -30,6 +31,15 @@ public class SetterDITest {
         Student student = applicationContext.getBean("student", Student.class);
         System.out.println(student);
 
+    }
+
+
+    @Test
+    public void propertiesTest() {
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-properties.xml");
+        MyDataSource source = context.getBean("myDataSource", MyDataSource.class);
+
+        System.out.println(source);
     }
 
 }

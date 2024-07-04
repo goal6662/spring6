@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--
+        引入外部properties文件
+            1. 引入外部context命名空间 及 约束 【xmlns:context、xsi:schemaLocation 建议直接使用该示例的代码】
+            2. 使用 context:property-placeholder 标签引入外部文件
+                location默认从 resource/ 目录取文件
+     -->
+    <context:property-placeholder location="jdbc.properties"/>
+
+    <bean id="myDataSource" class="com.goal.spring6.bean.MyDataSource">
+        <!-- 使用 value + ${} 取值 -->
+        <property name="driverClass" value="${driverClass}"/>
+        <property name="url" value="${url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${password}"/>
+    </bean>
+
+</beans>
