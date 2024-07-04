@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="orderDao" class="com.goal.spring6.dao.OrderDao"/>
+    <bean id="orderService" class="com.goal.spring6.service.OrderService">
+        <!--
+            注入外部Bean
+                外部：bean定义在外面，使用ref引用
+         -->
+        <property name="orderDao" ref="orderDao"/>
+    </bean>
+
+    <bean id="orderServiceInner" class="com.goal.spring6.service.OrderService">
+        <property name="orderDao">
+            <!-- 内部bean：在property标签内部使用嵌套的bean -->
+            <bean class="com.goal.spring6.dao.OrderDao"/>
+        </property>
+    </bean>
+
+</beans>
