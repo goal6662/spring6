@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="com.goal.spring6.dao.UserDao" id="userDao"/>
+
+    <bean class="com.goal.spring6.service.UserService" id="userService">
+        <!-- 依赖的属性: name属性名称 -->
+        <!-- value: 直接指定值、ref: 指定引用的对象[其他bean标签的ID] -->
+        <property name="userDao" ref="userDao"/>
+    </bean>
+
+</beans>

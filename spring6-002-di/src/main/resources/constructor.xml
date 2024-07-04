@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 普通的组件：不会依赖其他组件 -->
+    <bean id="userDao" class="com.goal.spring6.dao.UserDao"/>
+    <bean id="vipDao" class="com.goal.spring6.dao.VipDao"/>
+
+    <!-- 存在依赖关系的组件 -->
+    <bean id="customerService" class="com.goal.spring6.service.CustomerService">
+        <!-- 通过构造注入实现依赖  -->
+        <!--
+            参数位置：选一种即可
+                index: 指定参数顺序 0开始
+                name: 指定参数的名称
+                不指定时：默认根据类型进行注入，存在相同类型会出现冲突，可读性差【不推荐】
+            参数值：
+                ref: 依赖的BeanID
+         -->
+        <constructor-arg index="0" name="userDao" ref="userDao"/>
+        <constructor-arg index="1" name="vipDao" ref="vipDao"/>
+    </bean>
+
+</beans>
