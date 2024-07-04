@@ -1,5 +1,6 @@
 package com.goal.spring6.test;
 
+import com.goal.spring6.bean.Student;
 import com.goal.spring6.bean.User;
 import com.goal.spring6.dao.OrderDao;
 import com.goal.spring6.service.OrderService;
@@ -20,6 +21,15 @@ public class SetterDITest {
 
         User user = context.getBean("user", User.class);
         System.out.println(user);
+    }
+
+    @Test
+    public void arrayTest() {
+        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring-array.xml");
+
+        Student student = applicationContext.getBean("student", Student.class);
+        System.out.println(student);
+
     }
 
 }

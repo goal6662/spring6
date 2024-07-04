@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <bean id="teacher1" class="com.goal.spring6.bean.User"/>
+    <bean id="teacher2" class="com.goal.spring6.bean.User"/>
+
+    <bean id="student" class="com.goal.spring6.bean.Student">
+        <!-- 简单类型的数组 -->
+        <property name="hobbies">
+            <!-- Array标签 -->
+            <array>
+                <value>hobby1</value>
+                <value>hobby2</value>
+                <value>hobby3</value>
+            </array>
+        </property>
+
+        <!-- 非简单类型的数组 -->
+        <property name="teachers">
+            <array>
+                <ref bean="teacher1"/>
+                <ref bean="teacher2"/>
+            </array>
+        </property>
+    </bean>
+
+    <bean id="person" class="com.goal.spring6.bean.Person">
+        <property name="phones">
+            <map>
+                <!-- 非简单类型 -->
+                <!-- <entry key-ref="" value-ref=""/> -->
+
+                <!-- 简单类型 -->
+                <entry key="1" value="123456"/>
+            </map>
+        </property>
+    </bean>
+
+</beans>
