@@ -19,4 +19,11 @@
         </property>
     </bean>
 
+    <bean id="user" class="com.goal.spring6.bean.User">
+        <property name="name" value="Tomcat"/>
+        <property name="age" value="19"/>
+        <property name="salary" value="15000.69"/>
+        <property name="birthday" value="Thu Jul 04 15:16:31 CST 2024"/>
+    </bean>
+
 </beans>
