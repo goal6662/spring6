@@ -1,9 +1,13 @@
 package com.goal.spring6.bean;
 
 import lombok.ToString;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.*;
 
 @ToString
-public class User {
+public class User implements BeanNameAware, BeanClassLoaderAware, BeanFactoryAware,
+                                                        InitializingBean,
+                                                        DisposableBean {
 
     private String name;
 
@@ -27,5 +31,30 @@ public class User {
 
     public void destroyBean() {
         System.out.println("5. 销毁Bean");
+    }
+
+    @Override
+    public void setBeanClassLoader(ClassLoader classLoader) {
+        System.out.println("    Aware2: ClassLoader-" + classLoader);
+    }
+
+    @Override
+    public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
+        System.out.println("    Aware3: BeanFactory-" + beanFactory);
+    }
+
+    @Override
+    public void setBeanName(String name) {
+        System.out.println("    Aware1: BeanName-" + name);
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("    InitializingBean: afterPropertiesSet");
+    }
+
+    @Override
+    public void destroy() throws Exception {
+        System.out.println("    DisposableBean: destroy");
     }
 }

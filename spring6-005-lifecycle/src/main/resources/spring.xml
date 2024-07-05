@@ -5,6 +5,8 @@
 
     <bean id="beanPostProcessor" class="com.goal.spring6.bean.LogBeanPostProcessor"/>
 
+    <!-- 多例对象缺少10步的后两步 -->
+    <!-- <bean id="user" class="com.goal.spring6.bean.User" init-method="initBean" destroy-method="destroyBean" scope="prototype"> -->
     <bean id="user" class="com.goal.spring6.bean.User" init-method="initBean" destroy-method="destroyBean">
         <!-- 表示要调用对应的Set方法 -->
         <property name="name" value="Tom"/>
