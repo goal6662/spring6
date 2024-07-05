@@ -6,6 +6,12 @@
     <!-- 直接使用bean标签，会调用无参构造方法创建对象 -->
     <bean id="apple" class="com.goal.spring6.bean.Apple"/>
 
+    <!-- 静态工厂方法 -->
     <bean id="factoryApple" class="com.goal.spring6.bean.AppleFactory" factory-method="get"/>
+
+    <!-- 具体工厂类 -->
+    <bean id="gunFactory" class="com.goal.spring6.factory.GunFactory"/>
+    <!-- 指定工厂类ID、方法 -->
+    <bean id="gun" factory-bean="gunFactory" factory-method="get"/>
 
 </beans>
