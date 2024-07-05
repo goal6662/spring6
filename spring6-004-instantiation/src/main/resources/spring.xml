@@ -14,4 +14,7 @@
     <!-- 指定工厂类ID、方法 -->
     <bean id="gun" factory-bean="gunFactory" factory-method="get"/>
 
+    <!-- 由于PersonFactory实现了FactoryBean接口，无需配置其他属性【factory-bean、factory-method】 -->
+    <bean id="person" class="com.goal.spring6.factory.PersonFactory"/>
+
 </beans>
