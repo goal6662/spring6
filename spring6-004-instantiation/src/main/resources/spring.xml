@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 直接使用bean标签，会调用无参构造方法创建对象 -->
+    <bean id="apple" class="com.goal.spring6.bean.Apple"/>
+
+    <bean id="factoryApple" class="com.goal.spring6.bean.AppleFactory" factory-method="get"/>
+
+</beans>
