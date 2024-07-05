@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="user" class="com.goal.spring6.bean.User" init-method="initBean" destroy-method="destroyBean">
+        <!-- 表示要调用对应的Set方法 -->
+        <property name="name" value="Tom"/>
+
+        <!-- 表示要通过该构造方法创建对象 -->
+        <constructor-arg name="name" value="Jack"/>
+    </bean>
+
+</beans>
