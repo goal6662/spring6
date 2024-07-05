@@ -17,4 +17,23 @@
     <!-- 由于PersonFactory实现了FactoryBean接口，无需配置其他属性【factory-bean、factory-method】 -->
     <bean id="person" class="com.goal.spring6.factory.PersonFactory"/>
 
+    <bean id="cusDate" class="java.util.Date">
+        <!-- 年 -->
+        <constructor-arg name="year" value="1988"/>
+        <!-- 月 -->
+        <constructor-arg name="month" value="12"/>
+        <!-- 天 -->
+        <constructor-arg name="date" value="15"/>
+    </bean>
+
+    <!-- 创建日期 -->
+    <bean id="birthday" class="com.goal.spring6.date.DateFactoryBean">
+        <!-- 指定构造方法参数 -->
+        <constructor-arg name="strDate" value="1980-10-11"/>
+    </bean>
+    <!-- 引用日期对象 -->
+    <bean id="student" class="com.goal.spring6.date.Student">
+        <property name="birthday" ref="birthday"/>
+    </bean>
+
 </beans>
