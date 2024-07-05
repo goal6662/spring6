@@ -3,6 +3,8 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean id="beanPostProcessor" class="com.goal.spring6.bean.LogBeanPostProcessor"/>
+
     <bean id="user" class="com.goal.spring6.bean.User" init-method="initBean" destroy-method="destroyBean">
         <!-- 表示要调用对应的Set方法 -->
         <property name="name" value="Tom"/>
